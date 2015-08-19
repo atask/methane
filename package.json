@@ -1,0 +1,24 @@
+{
+  "name": "methane",
+  "version": "0.1.0",
+  "description": "Rename files based on meta data contained within them",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atask/methane.git"
+  },
+  "keywords": [
+    "file",
+    "rename",
+    "meta"
+  ],
+  "author": "atask",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/atask/methane/issues"
+  },
+  "homepage": "https://github.com/atask/methane#readme"
+}
