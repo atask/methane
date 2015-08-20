@@ -20,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/atask/methane/issues"
   },
-  "homepage": "https://github.com/atask/methane#readme"
+  "homepage": "https://github.com/atask/methane#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "merge-stream": "^1.0.0"
+  },
+  "dependencies": {
+    "babel-runtime": "^5.8.20"
+  }
 }

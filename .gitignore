@@ -1,0 +1,4 @@
+node_modules
+lib/*.js
+lib/readers/*.js
+index.js
