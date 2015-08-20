@@ -1,1 +1,2 @@
-export * from 'lib/methane';
+import methane from './lib/methane';
+export default methane;
