@@ -9,11 +9,11 @@ gulp.task('default', function() {
 
   var methane = gulp.src('lib/methane.es6')
     .pipe(babel())
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('./lib'));
 
   var readers = gulp.src('lib/readers/*.es6')
     .pipe(babel())
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('./lib/readers'));
 
   return merge(index, methane, readers);
 });

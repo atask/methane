@@ -1,5 +1,5 @@
-import * as jpgReader from 'readers/jpg';
-import * as cr2Reader from 'readers/cr2'
+import * as jpgReader from './readers/jpg';
+import * as cr2Reader from './readers/cr2';
 
 let readers = [jpgReader, cr2Reader];
 
