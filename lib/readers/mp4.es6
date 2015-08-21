@@ -1,13 +1,13 @@
 import {exec} from 'child_process';
 
-let JPG_TOOL_TEST = 'jhead -V';
+let MP4_TOOL_TEST = '/* put command here */';
 
-export const extension = 'jpg';
+export const extension = 'mp4';
 
 export function testTool() {
-  // evaluate if jhead can be executed
+  // evaluate if tool can be executed
   return new Promise((resolve, reject) => {
-    exec(JPG_TOOL_TEST, error => {
+    exec(MP4_TOOL_TEST, error => {
       if (error) {
         reject();
       }
