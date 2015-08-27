@@ -1,16 +1,24 @@
-import * as jpgReader from './readers/jpg';
-import * as cr2Reader from './readers/cr2';
+import jpgReader from './readers/jpg';
+import cr2Reader from './readers/cr2';
 
-let readers = [jpgReader, cr2Reader];
+let Readers = [JpgReader, Cr2Reader],
+    readers =  Readers.map(Reader => new Reader());
 
-let logger;
+export class Methane {
+  constructor(logger) {
+    this.logger = logger;
+  }
 
-let methane = function(readers) {
-  logger.log('inside methane body');
-};
-
-export default function(loggr) {
-  logger = loggr || console;
-  logger.log('Inside methane init');
-  return methane;
-};
+  testReaders() {
+    return Promise
+      .all(readers.map(reader => reader.isAvailable()))
+      .then(availableResults => {
+        var availableReaders = {};
+        readers
+          .filter((reader, index) => availableResults[index])
+          .forEach(reader => {
+            availableReaders[reader.extension] = reader;
+          });
+      });
+  }
+}

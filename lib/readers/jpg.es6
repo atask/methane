@@ -1,17 +1,28 @@
 import {exec} from 'child_process';
 
-let JPG_TOOL_TEST = 'jhead -V';
+const JPG_TOOL_TEST = 'jhead -V';
+const extension = 'jpg';
 
-export const extension = 'jpg';
+export default class {
+  constructor(logger) {
+    this.logger = logger;
+    this.extension = extension;
+  }
 
-export function testTool() {
   // evaluate if jhead can be executed
-  return new Promise((resolve, reject) => {
-    exec(JPG_TOOL_TEST, error => {
-      if (error) {
-        reject();
-      }
-      resolve();
+  isAvailable() {
+    return new Promise((resolve, reject) => {
+      exec(JPG_TOOL_TEST, error => {
+        if (error) {
+          resolve(false);
+        }
+        resolve(true);
+      });
     });
-  });
+  }
+
+  // rename files using pattern
+  rename(glob, format) {
+    
+  }
 }
