@@ -27,6 +27,7 @@
     "merge-stream": "^1.0.0"
   },
   "dependencies": {
-    "babel-runtime": "^5.8.20"
+    "babel-runtime": "^5.8.20",
+    "glob": "^5.0.14"
   }
 }

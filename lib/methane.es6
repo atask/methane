@@ -1,3 +1,4 @@
+import glob from 'glob';
 import jpgReader from './readers/jpg';
 import cr2Reader from './readers/cr2';
 
@@ -13,12 +14,24 @@ export class Methane {
     return Promise
       .all(readers.map(reader => reader.isAvailable()))
       .then(availableResults => {
-        var availableReaders = {};
-        readers
-          .filter((reader, index) => availableResults[index])
-          .forEach(reader => {
-            availableReaders[reader.extension] = reader;
-          });
+        return readers.filter((reader, index) => availableResults[index]);
+      });
+  }
+
+  rename(globPattern, outFormat) {
+    let globSearch = new Promise((resolve, reject) => {
+      glob(globPattern, (err, matches) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(matches);
+      });
+    });
+
+    return Promise.all([testReaders, globSearch])
+      .then(results => {
+        var [readers, matches] = results;
+        return Promise.all(readers.map(reader => reader.rename(matches, outFormat)));
       });
   }
 }
