@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "babel-runtime": "^5.8.20",
-    "glob": "^5.0.14"
+    "glob": "^5.0.14",
+    "string-template": "^0.2.1"
   }
 }
