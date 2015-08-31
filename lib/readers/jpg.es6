@@ -37,6 +37,6 @@ export default class {
       var jhead = spawn('jhead', options);
       jhead.stdout.on('data', data => console.log(data));
       jhead.on('close', code => resolve(code));
-    }
+    });
   }
 }
