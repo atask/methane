@@ -12,10 +12,12 @@ export default class {
 
   testReaders() {
     return Promise
-      .all(readers.map(reader => reader.isAvailable()))
+      .all(this.readers.map(reader => reader.isAvailable()))
       .then(availableResults => {
-        return readers.filter((reader, index) => availableResults[index]);
-      });
+        this.readers.forEach((reader, index) =>
+          reader.available = availableResult[index]
+        );
+      );
   }
 
   rename(globPattern, outFormat) {
@@ -31,7 +33,9 @@ export default class {
     return Promise.all([testReaders, globSearch])
       .then(results => {
         var [readers, matches] = results;
-        return Promise.all(readers.map(reader => reader.rename(matches, outFormat)));
+        return Promise.all(readers
+          .filter(reader => reader.available)
+          .map(reader => reader.rename(matches, outFormat)));
       });
   }
 }
