@@ -3,11 +3,11 @@ import jpgReader from './readers/jpg';
 import cr2Reader from './readers/cr2';
 
 let Readers = [JpgReader, Cr2Reader],
-    readers =  Readers.map(Reader => new Reader());
 
-export class Methane {
+export default class {
   constructor(logger) {
-    this.logger = logger;
+    this.logger = logger || console;
+    this.readers =  Readers.map(Reader => new Reader(logger));
   }
 
   testReaders() {

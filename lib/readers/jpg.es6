@@ -21,7 +21,7 @@ const extension = 'jpg';
 
 export default class {
   constructor(logger) {
-    this.logger = logger;
+    this.logger = logger || console;
     this.extension = extension;
   }
 
