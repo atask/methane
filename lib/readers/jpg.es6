@@ -5,7 +5,7 @@ import {format} from 'string-template'
 // 'jhead -V'
 
 // Rename files:
-// 'jhead -n%Y%m%d-%H%M%S file1.jpg file2.jpg ...'
+// 'jhead -exonly -n%Y%m%d-%H%M%S file1.jpg file2.jpg ...'
 
 // Other notes:
 // * upon success jhead will write 'file1.jpg --> 20150101-140101.jpg'
@@ -42,7 +42,7 @@ export default class {
   rename(filePaths, format, renameCallback) {
     return new Promise((resolve, reject) => {
       // build options array
-      var options = ['-n' + format];
+      var options = ['-exonly', '-n' + format];
       options = options.concat(filePaths);
       var jhead = spawn('jhead', options);
       jhead.stdout.on('data', data => console.log(data));
