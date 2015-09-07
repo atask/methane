@@ -2,7 +2,7 @@ import glob from 'glob';
 import jpgReader from './readers/jpg';
 import cr2Reader from './readers/cr2';
 
-let Readers = [JpgReader, Cr2Reader],
+let Readers = [JpgReader, Cr2Reader];
 
 export default class {
   constructor(logger) {
@@ -17,7 +17,7 @@ export default class {
         this.readers.forEach((reader, index) =>
           reader.available = availableResult[index]
         );
-      );
+      });
   }
 
   rename(globPattern, outFormat) {

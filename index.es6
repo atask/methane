@@ -8,7 +8,7 @@ let args = parseArgs(argv[2], {
   default: {
     f: '%Y%m%d-%H%M%S'
   }
-};
+});
 
 let methane = new Methane(winston);
 
