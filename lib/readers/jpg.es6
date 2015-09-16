@@ -38,15 +38,17 @@ export default class {
     });
   }
 
-  // rename files using pattern
-  rename(filePaths, format, renameCallback) {
+  // rename a file using given pattern
+  rename(filePath, format) {
     return new Promise((resolve, reject) => {
-      // build options array
-      var options = ['-exonly', '-n' + format];
-      options = options.concat(filePaths);
-      var jhead = spawn('jhead', options);
-      jhead.stdout.on('data', data => console.log(data));
-      jhead.on('close', code => resolve(code));
+      // build command string 
+      var command = format('jhead -exonly -n{pattern} {fileName}', {
+        fileName: filePath,
+        pattern: format
+      });
+      exec(command, (error, stdout, stderr) => {
+        // process output outcomes...
+      });
     });
   }
 }
